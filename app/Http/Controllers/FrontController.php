@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Kategori;
 
 class FrontController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $kategori = Kategori::all();
+        return view('index',compact('kategori'));
     }
     public function kategori()
     {

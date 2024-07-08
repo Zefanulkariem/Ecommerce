@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', Role::class]], funct
         return view('admin.index');
     });
     Route::resource('kategori', App\Http\Controllers\KategoriController::class);
+    Route::resource('produk', App\Http\Controllers\ProdukController::class);
 });
 
 //ini user

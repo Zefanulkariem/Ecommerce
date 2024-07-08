@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,9 @@ class KategoriController extends Controller
     public function index()
     {
         $kategori = Kategori::all();
+        $title = 'Hapus Akun User!';
+        $text = "Apakah kamu yakin ingin menghapusnya?";
+        confirmDelete($title, $text);
         return view('admin.kategori.index', compact('kategori'));
     }
 
@@ -21,7 +25,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.kategori.create');
     }
 
     /**
@@ -29,7 +33,16 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'kategori' => 'required',
+        ]);
+
+        $kategori = new Kategori;
+        $kategori->kategori = $request->kategori;
+
+        $kategori->save();
+        Alert::success('Success Title', "Data Berhasil Di Tambah")->autoClose(1000);
+        return redirect()->route('kategori.index');
     }
 
     /**
@@ -43,24 +56,38 @@ class KategoriController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Kategori $kategori)
+    public function edit($id)
     {
-        //
+        $kategori = Kategori::findOrFail($id);
+        return view('admin.kategori.edit', compact('kategori'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Kategori $kategori)
+    public function update(Request $request, $id)
     {
-        //
+        $validate = $request->validate([
+            'kategori' => 'required',
+        ]);
+
+        $kategori = Kategori::findOrfail($id);
+        $kategori->kategori = $request->kategori;
+
+        $kategori->save();
+        Alert::success('Success Title', "Data Berhasil Di edit")->autoClose(1000);
+        return redirect()->route('kategori.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kategori $kategori)
+    public function destroy($id)
     {
-        //
+        $kategori = Kategori::findOrFail($id);
+        
+        $kategori->delete();
+        Alert::success("Delete", "Data Berhasil Di Hapus")->autoClose(1000);
+        return redirect()->route('kategori.index');
     }
 }
