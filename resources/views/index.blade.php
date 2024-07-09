@@ -2238,7 +2238,7 @@
                     <div class="product product-2">
                         <figure class="product-media">
                             {{-- <span class="product-label label-circle label-sale">Sale</span> --}}
-                            <a href="{{route('detail_shop', ['id' => $data->id])}}">
+                            <a href="{{ route('detail_shop', ['id' => $data->id]) }}">
                                 <img src="{{asset('/image/produk/' . $data->cover) }}" width="100" alt="Gambar Produk" class="product-image">
                             </a>
 
@@ -2254,9 +2254,9 @@
 
                         <div class="product-body">
                             <div class="product-cat">
-                                <a href="#">{{$data->kategori->kategori}}</a>
+                                <a href="{{'error'}}">{{$data->kategori->kategori}}</a>
                             </div><!-- End .product-cat -->
-                            <h3 class="product-title"><a href="{{route('detail_shop', ['id' => $data->id])}}">{{$data->nama_produk}}</a></h3><!-- End .product-title -->
+                            <h3 class="product-title"><a href="{{ route('detail_shop', ['id' => $data->id]) }}">{{$data->nama_produk}}</a></h3><!-- End .product-title -->
                             <div class="product-price">
                                 <span class="new-price">@rupiah($data->harga)</span>
                             </div><!-- End .product-price -->

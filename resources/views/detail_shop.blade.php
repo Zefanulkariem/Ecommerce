@@ -11,7 +11,7 @@
                     <div class="col-md-6">
                         <div class="product-gallery">
                             <figure class="product-main-image">
-                                <img src="{{asset('/image/produk/' . $produk->cover) }}" alt="product image">
+                                <img src="{{asset('/image/produk/' . $produk->cover) }}"alt="product image">
                             </figure><!-- End .product-main-image -->
 
 
@@ -50,14 +50,14 @@
                                 <a href="#" class="btn-product btn-cart"><span>Tambah ke Keranjang</span></a>
                             </div><!-- End .product-details-action -->
 
-                            <div class="product-details-footer">
+                            {{-- <div class="product-details-footer">
                                 <div class="product-cat">
                                     <span>Kategori:</span>
-                                    <a href="#" value="{{$kategori->kategori}}">{{$kategori->kategori}}</a>
+                                    <a href="#">{{ $kategori->kategori ?? 'Kategori tidak ditemukan' }}</a>
                                 </div><!-- End .product-cat -->
-                                
-                                
-                            </div><!-- End .product-details-footer -->
+                            </div><!-- End .product-details-footer --> --}}
+
+
                         </div><!-- End .product-details -->
                     </div><!-- End .col-md-6 -->
                 </div><!-- End .row -->

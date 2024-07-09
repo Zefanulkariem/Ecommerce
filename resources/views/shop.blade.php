@@ -6,8 +6,7 @@
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{('/')}}">Home</a></li>
-                <li class="breadcrumb-item"><a href=""{{route('shop')}}"">Shop</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Produk</li>
+                <li class="breadcrumb-item active" aria-current="page">Shop</li>
             </ol>
         </div><!-- End .container -->
     </nav><!-- End .breadcrumb-nav -->
@@ -16,12 +15,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
-                    <div class="toolbox">
-                        {{-- <div class="toolbox-left">
+                    {{-- <div class="toolbox">
+                        <div class="toolbox-left">
                             <div class="toolbox-info">
                                 Showing <span>9 of 56</span> Products
                             </div><!-- End .toolbox-info -->
-                        </div><!-- End .toolbox-left --> --}}
+                        </div><!-- End .toolbox-left -->
 
                         <div class="toolbox-right">
                             <div class="toolbox-sort">
@@ -78,7 +77,7 @@
                                 </a>
                             </div><!-- End .toolbox-layout -->
                         </div><!-- End .toolbox-right -->
-                    </div><!-- End .toolbox -->
+                    </div><!-- End .toolbox --> --}}
 
                     <div class="products mb-3">
                         <div class="row">
@@ -158,7 +157,7 @@
                 <aside class="col-lg-3 order-lg-first">
                     <div class="sidebar sidebar-shop">
                         <div class="widget widget-clean">
-                            <label>Filters:</label>
+                            <label>Filter:</label>
                         </div><!-- End .widget widget-clean -->
 
                         <div class="widget widget-collapsible">

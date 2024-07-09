@@ -114,7 +114,7 @@ class ProdukController extends Controller
         }
 
         $produk->save();
-        Alert::success('Success Title', "Data Berhasil Di Tambah")->autoClose(1000);
+        Alert::success('Success Title', "Data Berhasil Di Edit")->autoClose(1000);
         return redirect()->route('produk.index');
     }
 

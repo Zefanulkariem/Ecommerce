@@ -15,6 +15,7 @@ class FrontController extends Controller
         return view('index',compact('kategori', 'produk'));
     }
 
+    //kategoriByID
     public function kategori($id)
     {
         return $this->produkByKategori($id);
@@ -44,11 +45,15 @@ class FrontController extends Controller
         return view('shop', compact('produk', 'kategori'));
     }
     
+    //detail-shop
     public function detail_shop($id)
     {
-        $kategori = kategori::findOrFail($id);
         $produk = Produk::findOrFail($id);
-        return view('detail_shop', compact('produk', 'kategori'));
+        // $kategori = Kategori::find($produk->kategori_id);
+
+        //dd($produk, $kategori);
+
+        return view('detail_shop', compact('produk', )); //kategori
     }
 
 }

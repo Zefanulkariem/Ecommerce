@@ -95,7 +95,7 @@ class KategoriController extends Controller
         }
 
         $kategori->save();
-        Alert::success('Success Title', "Data Berhasil Di edit")->autoClose(1000);
+        Alert::success('Success Title', "Data Berhasil Di Edit")->autoClose(1000);
         return redirect()->route('kategori.index');
     }
 
