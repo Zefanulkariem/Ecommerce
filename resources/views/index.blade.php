@@ -66,7 +66,7 @@
     <span class="slider-loader"></span><!-- End .slider-loader -->
 </div><!-- End .intro-slider-container -->
 
-<div class="container">
+{{-- <div class="container">
     <h2 class="title text-center mb-4">Explore Popular Categories</h2><!-- End .title text-center -->
     
     <div class="cat-blocks-container">
@@ -76,7 +76,7 @@
                 <a href="category.html" class="cat-block">
                     <figure>
                         <span>
-                            <img src="{{asset('front/assets/images/demos/demo-4/cats/1.png')}}" alt="Category image">
+                            <img src="{{asset('/image/kategori/' . $data->cover) }}" alt="Category image">
                         </span>
                     </figure>
 
@@ -87,7 +87,7 @@
             
         </div><!-- End .row -->
     </div><!-- End .cat-blocks-container -->
-</div><!-- End .container -->
+</div><!-- End .container --> --}}
 
 <div class="mb-4"></div><!-- End .mb-4 -->
 
@@ -1584,7 +1584,7 @@
 </div><!-- End .container --> --}}
 
 {{-- produk trending --}}
-<div class="bg-light pt-5 pb-6">
+{{-- <div class="bg-light pt-5 pb-6">
     <div class="container trending-products">
         <div class="heading heading-flex mb-3">
             <div class="heading-left">
@@ -2215,69 +2215,71 @@
             </div><!-- End .col-xl-4-5col -->
         </div><!-- End .row -->
     </div><!-- End .container -->
-</div><!-- End .bg-light pt-5 pb-6 -->
+</div><!-- End .bg-light pt-5 pb-6 --> --}}
 
 <div class="mb-5"></div><!-- End .mb-5 -->
 
+{{-- rekomendasi --}}
 <div class="container for-you">
     <div class="heading heading-flex mb-3">
         <div class="heading-left">
-            <h2 class="title">Recommendation For You</h2><!-- End .title -->
+            <h2 class="title">Rekomendasi untukmu</h2><!-- End .title -->
         </div><!-- End .heading-left -->
 
-       <div class="heading-right">
+       {{-- <div class="heading-right">
             <a href="#" class="title-link">View All Recommendadion <i class="icon-long-arrow-right"></i></a>
-       </div><!-- End .heading-right -->
+       </div><!-- End .heading-right --> --}}
     </div><!-- End .heading -->
 
     <div class="products">
         <div class="row justify-content-center">
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="product product-2">
-                    <figure class="product-media">
-                        <span class="product-label label-circle label-sale">Sale</span>
-                        <a href="product.html">
-                            <img src="{{asset('front/assets/images/demos/demo-4/products/product-10.jpg')}}" alt="Product image" class="product-image">
-                        </a>
+            @foreach ($produk as $data)
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="product product-2">
+                        <figure class="product-media">
+                            {{-- <span class="product-label label-circle label-sale">Sale</span> --}}
+                            <a href="{{route('detail_shop', ['id' => $data->id])}}">
+                                <img src="{{asset('/image/produk/' . $data->cover) }}" width="100" alt="Gambar Produk" class="product-image">
+                            </a>
 
-                        <div class="product-action-vertical">
-                            <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"></a>
-                        </div><!-- End .product-action -->
+                            <div class="product-action-vertical">
+                                <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"></a>
+                            </div><!-- End .product-action -->
 
-                        <div class="product-action">
-                            <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
-                            <a href="popup/quickView.html" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a>
-                        </div><!-- End .product-action -->
-                    </figure><!-- End .product-media -->
+                            <div class="product-action">
+                                <a href="#" class="btn-product btn-cart" title="Add to cart"><span>Tambah ke keranjang</span></a>
+                                {{-- <a href="popup/quickView.html" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a> --}}
+                            </div><!-- End .product-action -->
+                        </figure><!-- End .product-media -->
 
-                    <div class="product-body">
-                        <div class="product-cat">
-                            <a href="#">Headphones</a>
-                        </div><!-- End .product-cat -->
-                        <h3 class="product-title"><a href="product.html">Beats by Dr. Dre Wireless  Headphones</a></h3><!-- End .product-title -->
-                        <div class="product-price">
-                            <span class="new-price">$279.99</span>
-                            <span class="old-price">Was $349.99</span>
-                        </div><!-- End .product-price -->
-                        <div class="ratings-container">
-                            <div class="ratings">
-                                <div class="ratings-val" style="width: 40%;"></div><!-- End .ratings-val -->
-                            </div><!-- End .ratings -->
-                            <span class="ratings-text">( 4 Reviews )</span>
-                        </div><!-- End .rating-container -->
+                        <div class="product-body">
+                            <div class="product-cat">
+                                <a href="#">{{$data->kategori->kategori}}</a>
+                            </div><!-- End .product-cat -->
+                            <h3 class="product-title"><a href="{{route('detail_shop', ['id' => $data->id])}}">{{$data->nama_produk}}</a></h3><!-- End .product-title -->
+                            <div class="product-price">
+                                <span class="new-price">@rupiah($data->harga)</span>
+                            </div><!-- End .product-price -->
+                            {{-- <div class="ratings-container">
+                                <div class="ratings">
+                                    <div class="ratings-val" style="width: 40%;"></div><!-- End .ratings-val -->
+                                </div><!-- End .ratings -->
+                                <span class="ratings-text">( 4 Reviews )</span>
+                            </div><!-- End .rating-container --> --}}
 
-                        <div class="product-nav product-nav-dots">
-                            <a href="#" class="active" style="background: #666666;"><span class="sr-only">Color name</span></a>
-                            <a href="#" style="background: #ff887f;"><span class="sr-only">Color name</span></a>
-                            <a href="#" style="background: #6699cc;"><span class="sr-only">Color name</span></a>
-                            <a href="#" style="background: #f3dbc1;"><span class="sr-only">Color name</span></a>
-                            <a href="#" style="background: #eaeaec;"><span class="sr-only">Color name</span></a>
-                        </div><!-- End .product-nav -->
-                    </div><!-- End .product-body -->
-                </div><!-- End .product -->
-            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+                            {{-- <div class="product-nav product-nav-dots">
+                                <a href="#" class="active" style="background: #666666;"><span class="sr-only">Color name</span></a>
+                                <a href="#" style="background: #ff887f;"><span class="sr-only">Color name</span></a>
+                                <a href="#" style="background: #6699cc;"><span class="sr-only">Color name</span></a>
+                                <a href="#" style="background: #f3dbc1;"><span class="sr-only">Color name</span></a>
+                                <a href="#" style="background: #eaeaec;"><span class="sr-only">Color name</span></a>
+                            </div><!-- End .product-nav --> --}}
+                        </div><!-- End .product-body -->
+                    </div><!-- End .product -->
+                </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+            @endforeach
 
-            <div class="col-6 col-md-4 col-lg-3">
+            {{-- <div class="col-6 col-md-4 col-lg-3">
                 <div class="product product-2">
                     <figure class="product-media">
                         <a href="product.html">
@@ -2545,7 +2547,7 @@
                         </div><!-- End .rating-container -->
                     </div><!-- End .product-body -->
                 </div><!-- End .product -->
-            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+            </div><!-- End .col-sm-6 col-md-4 col-lg-3 --> --}}
         </div><!-- End .row -->
     </div><!-- End .products -->
 </div><!-- End .container -->
@@ -2556,7 +2558,7 @@
     <hr class="mb-0">
 </div><!-- End .container -->
 
-<div class="icon-boxes-container bg-transparent">
+{{-- <div class="icon-boxes-container bg-transparent">
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-lg-3">
@@ -2611,6 +2613,6 @@
             </div><!-- End .col-sm-6 col-lg-3 -->
         </div><!-- End .row -->
     </div><!-- End .container -->
-</div><!-- End .icon-boxes-container -->
+</div><!-- End .icon-boxes-container --> --}}
 
 @endsection

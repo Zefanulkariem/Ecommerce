@@ -16,6 +16,7 @@
               <tr>
                 <th>User</th>
                 <th>Kategori</th>
+                <th>Icon</th>
                 <th>Aksi</th>
               </tr>
             </thead>
@@ -25,6 +26,8 @@
                 <tr>
                     <td>{{$no++}}</td>
                     <td>{{$data->kategori}}</td>
+                    <td style="text-align: center;"> <img src="{{asset('/image/kategori/' . $data->cover) }}" width="100"> </td>
+                    
                     <td>
                         <form action="{{route('kategori.destroy', $data->id)}}" method="post">
                             @csrf
@@ -32,9 +35,9 @@
                             <a href="{{route('kategori.edit', $data->id)}}" class="btn btn-sm btn-warning">
                               <i class="ti-pencil" style="text-align: center"></i>
                             </a>
-                            <button href="{{route('kategori.destroy', $data->id)}}" class="btn btn-sm btn-danger" data-confirm-delete="true">
+                            <a href="{{route('kategori.destroy', $data->id)}}" class="btn btn-sm btn-danger" data-confirm-delete="true">
                               <i class="ti-trash" style="text-align: center"></i>
-                            </button>
+                            </a>
                         </form>
                     </td>
                 </tr>

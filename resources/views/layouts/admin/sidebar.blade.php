@@ -3,13 +3,13 @@
         <li class="nav-item">
         <a class="nav-link" href="{{url('admin')}}">
             <i class="icon-grid menu-icon"></i>
-            <span class="menu-title">Dashboard</span>
+            <span class="menu-title">Dasbor</span>
         </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
                 <i class="icon-grid-2 menu-icon"></i>
-                <span class="menu-title">Tables</span>
+                <span class="menu-title">Tabel-tabel</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="tables">

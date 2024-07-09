@@ -24,6 +24,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', Role::class]], funct
 
 //ini user
 Route::get('/', [FrontController::class, 'index']); 
+Route::get('error', [FrontController::class, 'error']);
+Route::get('shop', [FrontController::class, 'shop'])->name('shop');
+Route::get('shop/kategori/{id}', [FrontController::class, 'kategori']); //coba cari paham ini
+Route::get('detail_shop{id}', [FrontController::class, 'detail_shop'])->name('detail_shop');
 
 Auth::routes();
 

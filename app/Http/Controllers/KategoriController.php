@@ -35,10 +35,20 @@ class KategoriController extends Controller
     {
         $validate = $request->validate([
             'kategori' => 'required',
+            'cover' => 'required',
+
         ]);
 
         $kategori = new Kategori;
         $kategori->kategori = $request->kategori;
+        $kategori->cover = $request->cover;
+
+        if($request->hasFile('cover')){
+            $img = $request->file('cover');
+            $name = rand(1000,9000) . $img->getClientOriginalName();
+            $img->move('image/kategori', $name);
+            $kategori->cover= $name;
+        }
 
         $kategori->save();
         Alert::success('Success Title', "Data Berhasil Di Tambah")->autoClose(1000);
@@ -69,10 +79,20 @@ class KategoriController extends Controller
     {
         $validate = $request->validate([
             'kategori' => 'required',
+            'cover' => 'required',
+
         ]);
 
         $kategori = Kategori::findOrfail($id);
         $kategori->kategori = $request->kategori;
+        $kategori->cover = $request->cover;
+
+        if($request->hasFile('cover')){
+            $img = $request->file('cover');
+            $name = rand(1000,9000) . $img->getClientOriginalName();
+            $img->move('image/kategori', $name);
+            $kategori->cover= $name;
+        }
 
         $kategori->save();
         Alert::success('Success Title', "Data Berhasil Di edit")->autoClose(1000);

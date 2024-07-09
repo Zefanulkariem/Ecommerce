@@ -1,7 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="col-lg-12 grid-margin stretch-card">
+<div class="row">
+  <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
         <h4 class="card-title">Tabel Produk</h4>
@@ -16,7 +17,6 @@
               <tr>
                 <th>User</th>
                 <th>Nama Produk</th>
-                <th>Deskripsi</th>
                 <th>Stok Produk</th>
                 <th>Harga</th>
                 <th>Kategori</th>
@@ -30,9 +30,8 @@
                 <tr>
                     <td>{{$no++}}</td>
                     <td>{{$data->nama_produk}}</td>
-                    <td>{{$data->deskripsi}}</td>
                     <td>{{$data->stok_produk}}</td>
-                    <td>Rp{{$data->harga}},00</td>
+                    <td>@rupiah($data->harga)</td>
                     <td>{{$data->kategori->kategori}}</td>
                     <td style="text-align: center;"> <img src="{{asset('/image/produk/' . $data->cover) }}" width="100"> </td>
                     <td>
@@ -55,5 +54,6 @@
       </div>
     </div>
   </div>
+</div>
 @endsection
 

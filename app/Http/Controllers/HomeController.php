@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Kategori;
+
 use Auth;
 
 class HomeController extends Controller
@@ -24,11 +26,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $kategori = Kategori::all();
+
         $user = Auth::user();
         if ($user->role == 1) {
             return view('admin.index');
         } else {
-            return view('index');
-        }
+            return view('index', compact('kategori'));
+        };
+
     }
 }

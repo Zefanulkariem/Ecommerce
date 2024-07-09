@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Skydash Admin</title>
+    <title>TechnoStore - Administrator</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('admin_assets/assets/vendors/feather/feather.css')}}">
     <link rel="stylesheet" href="{{asset('admin_assets/assets/vendors/ti-icons/css/themify-icons.css')}}">
@@ -37,7 +37,7 @@
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-          @yield('content')
+            @yield('content')
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->

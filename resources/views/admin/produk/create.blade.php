@@ -61,7 +61,7 @@
           <label for="exampleInputName1">Gambar Produk</label>
           <input type="file" name="img[]" class="file-upload-default">
           <div class="input-group col-xs-12 d-flex align-items-center">
-            <input type="file" name="cover" class="form-control file-upload-info" placeholder="Upload Gambar Prod">
+            <input type="file" name="cover" class="form-control file-upload-info" placeholder="Upload Gambar Produk">
           </div>
         </div>
         <a href="{{route('produk.index')}}" class="btn btn-light">Cancel</a>

@@ -1,100 +1,94 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="{{asset('logres/fonts/icomoon/style.css')}}">
-
-    <link rel="stylesheet" href="{{asset('logres/css/owl.carousel.min.css')}}">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{asset('logres/css/bootstrap.min.css')}}">
-    
-    <!-- Style -->
-    <link rel="stylesheet" href="{{asset('logres/css/style.css')}}">
-
-    <title>TechnoStore - Login</title>
+    <title>TechnoStore - Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{asset('admin_assets/assets/vendors/feather/feather.css')}}">
+    <link rel="stylesheet" href="{{asset('admin_assets/assets/vendors/ti-icons/css/themify-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('admin_assets/assets/vendors/css/vendor.bundle.base.css')}}">
+    <link rel="stylesheet" href="{{asset('admin_assets/assets/vendors/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('admin_assets/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{asset('admin_assets/assets/css/style.css')}}">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="{{asset('admin_assets/assets/images/favicon.png')}}" />
   </head>
   <body>
-  
-
-  
-  <div class="content">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <img src="{{asset('logres/images/undraw_remotely_2j6y.svg')}}" alt="Image" class="img-fluid">
-        </div>
-        <div class="col-md-6 contents">
-          <div class="row justify-content-center">
-            <div class="col-md-8">
-              <div class="mb-4">
-              <h4 style="font-weight: 600">TechnoStore</h4>
-              <h1 style="font-weight: 600">Selamat Datang Kembali</h1>
-              <p class="mb-4" style="color:rgb(18, 18, 18);">Anda perlu login agar dapat mengakses situs web ini.</p>
-            </div>
-            <form action="{{route('login')}}" method="post">
-                @csrf
-              <div class="form-group first">
-                <label>Email</label>
-                <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" id="inputEmailAddress">
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth px-0">
+          <div class="row w-100 mx-0">
+            <div class="col-lg-4 mx-auto">
+              <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                <div class="brand-logo">
+                  <h3 class="mt-2" style="font-weight: 300">TechnoStore</h3>
+                </div>
+                <h4 style="font-weight: 600">Selamat Datang Kembali</h4>
+                <h6 class="font-weight-light">Anda perlu login agar dapat mengakses situs web ini.</h6>
+                <form method="POST" action="{{ ('login') }}">
+                  @csrf
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required autocompleted="email" name="email" placeholder="Masukkan Email" class="form-control @error('email') is-invalid @enderror" id="inputEmailAddress">
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                  </div>
+                  <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" required autocompleted="password" name="password" placeholder="Masukkan Password" class="form-control  @error('password') is-invalid @enderror" id="inputChoosePassword">
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                  </div>
+                  {{-- <div class="form-group">
+                    <select class="form-select form-select-lg" id="exampleFormControlSelect2">
+                      <option>Country</option>
+                      <option>United States of America</option>
+                      <option>United Kingdom</option>
+                      <option>India</option>
+                      <option>Germany</option>
+                      <option>Argentina</option>
+                    </select>
+                  </div> --}}
+                  {{-- <div class="form-group">
+                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                  </div> --}}
+                  <div class="mt-3 d-grid gap-2">
+                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN UP</button>
+                  </div>
+                  <div class="text-center mt-4 font-weight-light"> Belum punya akun? <a href="{{'register'}}" class="text-primary">Sign In</a>
+                  </div>
+                </form>
               </div>
-              <div class="form-group last mb-4">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control  @error('password') is-invalid @enderror" id="inputChoosePassword">
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-                
-              </div>
-              
-              <div class="d-flex mb-5 align-items-center">
-                <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
-                  <input type="checkbox" checked="checked"/>
-                  <div class="control__indicator"></div>
-                </label>
-                <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span> 
-              </div>
-
-              <input type="submit" value="Log In" class="btn btn-block btn-primary">
-
-              {{-- <span class="d-block text-left my-4 text-muted">&mdash; or login with &mdash;</span> --}}
-              
-              {{-- <div class="social-login">
-                <a href="#" class="facebook">
-                  <span class="icon-facebook mr-3"></span> 
-                </a>
-                <a href="#" class="twitter">
-                  <span class="icon-twitter mr-3"></span> 
-                </a>
-                <a href="#" class="google">
-                  <span class="icon-google mr-3"></span> 
-                </a>
-              </div> --}}
-            </form>
             </div>
           </div>
-          
         </div>
-        
+        <!-- content-wrapper ends -->
       </div>
+      <!-- page-body-wrapper ends -->
     </div>
-  </div>
-
-  
-    <script src="{{asset('logres/js/jquery-3.3.1.min.js')}}"></script>
-    <script src="{{asset('logres/js/popper.min.js')}}"></script>
-    <script src="{{asset('logres/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('logres/js/main.js')}}"></script>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{{asset('admin_assets/assets/vendors/js/vendor.bundle.base.js')}}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{{asset('admin_assets/assets/js/off-canvas.js')}}"></script>
+    <script src="{{asset('admin_assets/assets/js/template.js')}}"></script>
+    <script src="{{asset('admin_assets/assets/js/settings.js')}}"></script>
+    <script src="{{asset('admin_assets/assets/js/todolist.js')}}"></script>
+    <!-- endinject -->
   </body>
 </html>
