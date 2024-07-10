@@ -26,8 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        
         $kategori = Kategori::all();
-
         $user = Auth::user();
         if ($user->role == 1) {
             return view('admin.index');

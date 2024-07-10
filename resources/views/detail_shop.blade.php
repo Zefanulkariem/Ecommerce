@@ -2,8 +2,6 @@
 
 @section('content')
 <main class="main">
-    
-
     <div class="page-content mt-3">
         <div class="container">
             <div class="product-details-top mb-2">

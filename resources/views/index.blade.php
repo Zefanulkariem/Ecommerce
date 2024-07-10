@@ -66,6 +66,7 @@
     <span class="slider-loader"></span><!-- End .slider-loader -->
 </div><!-- End .intro-slider-container -->
 
+{{-- kategori --}}
 {{-- <div class="container">
     <h2 class="title text-center mb-4">Explore Popular Categories</h2><!-- End .title text-center -->
     

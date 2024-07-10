@@ -36,12 +36,12 @@ class ProdukController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'nama_produk',
-            'deskripsi',
-            'stok_produk',
-            'harga',
-            'id_kategori',
-            'cover',
+            'nama_produk'  => 'required',
+            'deskripsi'  => 'required',
+            'stok_produk'  => 'required',
+            'harga'  => 'required',
+            'id_kategori'  => 'required',
+            'cover'  => 'required|max:4000|mimes:png,jpg,jpeg',
         ]);
 
         $produk = new Produk;
@@ -50,7 +50,6 @@ class ProdukController extends Controller
         $produk->stok_produk = $request->stok_produk;
         $produk->harga = $request->harga;
         $produk->id_kategori = $request->id_kategori;
-        $produk->cover = $request->cover;
 
         if($request->hasFile('cover')){
             $img = $request->file('cover');
@@ -90,12 +89,11 @@ class ProdukController extends Controller
     public function update(Request $request, $id)
     {
         $validate = $request->validate([
-            'nama_produk',
-            'deskripsi',
-            'stok_produk',
-            'harga',
-            'id_kategori',
-            'cover',
+            'nama_produk' => 'required',
+            'deskripsi' => 'required',
+            'stok_produk' => 'required',
+            'harga' => 'required',
+            'id_kategori' => 'required',
         ]);
 
         $produk = Produk::findOrFail($id);
@@ -104,7 +102,6 @@ class ProdukController extends Controller
         $produk->stok_produk = $request->stok_produk;
         $produk->harga = $request->harga;
         $produk->id_kategori = $request->id_kategori;
-        $produk->cover = $request->cover;
 
         if($request->hasFile('cover')){
             $img = $request->file('cover');

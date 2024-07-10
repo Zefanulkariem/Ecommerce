@@ -55,8 +55,9 @@
                     <i class="icon-bars"></i>
                 </button>
                 
-                <a href="index.html" class="logo">
-                    <img src="{{asset('front/assets/images/demos/demo-4/logo.png')}}" alt="Molla Logo" width="105" height="25">
+                <a href="{{'/'}}" class="logo">
+                    <h3 class="mt-2">TechnoStore</h3>
+                    {{-- <img src="{{asset('front/assets/images/demos/demo-4/logo.png')}}" alt="Molla Logo" width="105" height="25"> --}}
                 </a>
             </div><!-- End .header-left -->
 
@@ -138,7 +139,7 @@
 
     <div class="header-bottom sticky-header">
         <div class="container">
-            {{-- <div class="header-left">
+            <div class="header-left">
                 <div class="dropdown category-dropdown">
                     <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Browse Categories">
                         Browse Categories <i class="icon-angle-down"></i>
@@ -148,13 +149,13 @@
                         <nav class="side-nav">
                             <ul class="menu-vertical sf-arrows">
                                 @foreach ($kategori as $data)
-                                    <li><a href="#">{{$data->kategori}}</a></li>  
+                                    <li><a href="{{ url('shop/kategori/' . $data->id) }}">{{$data->kategori}}</a></li>  
                                 @endforeach
                             </ul><!-- End .menu-vertical -->
                         </nav><!-- End .side-nav -->
                     </div><!-- End .dropdown-menu -->
                 </div><!-- End .category-dropdown -->
-            </div><!-- End .header-left --> --}}
+            </div><!-- End .header-left -->
 
             <div class="header-center">
                 <nav class="main-nav">
