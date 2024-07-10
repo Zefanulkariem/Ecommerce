@@ -41,7 +41,7 @@ class ProdukController extends Controller
             'stok_produk'  => 'required',
             'harga'  => 'required',
             'id_kategori'  => 'required',
-            'cover'  => 'required|max:4000|mimes:png,jpg,jpeg',
+            'cover'  => 'required',
         ]);
 
         $produk = new Produk;

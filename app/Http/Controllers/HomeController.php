@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Kategori;
+use App\Models\Produk;
 
 use Auth;
 
@@ -28,11 +29,12 @@ class HomeController extends Controller
     {
         
         $kategori = Kategori::all();
+        $produk = Produk::all();
         $user = Auth::user();
         if ($user->role == 1) {
             return view('admin.index');
         } else {
-            return view('index', compact('kategori'));
+            return view('index', compact('kategori', 'produk'));
         };
 
     }

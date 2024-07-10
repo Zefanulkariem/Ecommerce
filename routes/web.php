@@ -31,15 +31,12 @@ Route::get('shop/kategori/{id}', [FrontController::class, 'kategori']); //coba c
 Route::get('detail_shop/{id}', [FrontController::class, 'detail_shop'])->name('detail_shop');
 Route::get('order', [FrontController::class, 'order'])->name('order');
 
-Route::middleware(['auth'])->group(function () {
-    
-    Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
-    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-    Route::post('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
-    Route::delete('/cart/delete/{id}', [CartController::class, 'delete'])->name('cart.delete');
-    Route::delete('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
-    
-});
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+
+Route::post('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
+Route::delete('/cart/delete/{id}', [CartController::class, 'delete'])->name('cart.delete');
+Route::delete('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
 
 
 Auth::routes();

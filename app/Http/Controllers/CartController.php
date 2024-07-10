@@ -17,15 +17,15 @@ class CartController extends Controller
         ]);
 
         $product = Produk::find($id);
-    
+
         if (!$product) {
             return redirect()->back()->with('error', 'Product not found!');
         }
-    
+
         $quantity = $request->input('qty', 1);
-    
+
         $cart = Cart::where('id_user', Auth::id())->where('id_produk', $id)->first();
-    
+
         if ($cart) {
             $cart->qty += $quantity;
             $cart->save();
@@ -36,7 +36,7 @@ class CartController extends Controller
                 'qty' => $quantity,
             ]);
         }
-    
+
         return redirect()->back()->with('success', 'Product added to cart!');
     }
 
@@ -49,10 +49,6 @@ class CartController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'qty' => 'required|integer|min:1',
-        ]);
-
         $cart = Cart::where('id_user', Auth::id())->where('id', $id)->first();
 
         if ($cart) {
