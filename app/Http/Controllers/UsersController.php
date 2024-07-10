@@ -37,14 +37,14 @@ class UsersController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
-            'isAdmin' => 'required|boolean',
+            'role' => 'required|boolean',
         ]);
         
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = $request->password;
-        $user->isAdmin = $request->isAdmin;
+        $user->role = $request->role;
 
         $user->save();
         Alert::success('Success Title', "Data Berhasil Di Tambah")->autoClose(1000);
@@ -77,14 +77,14 @@ class UsersController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
-            'isAdmin' => 'required|boolean',
+            'role' => 'required|boolean',
         ]);
         
         $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = $request->password;
-        $user->isAdmin = $request->isAdmin;
+        $user->role = $request->role;
         
         $user->save();
         Alert::success("Success Title", "Data Berhasil Di Rubah")->autoClose(1000);
