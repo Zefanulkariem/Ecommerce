@@ -2,10 +2,11 @@
     <div class="footer-middle">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 col-lg-3">
+                <div class="col-sm-6 col-lg-6">
                     <div class="widget widget-about">
-                        <img src="{{asset('front/assets/images/demos/demo-4/logo-footer.png')}}" class="footer-logo" alt="Footer Logo" width="105" height="25">
-                        <p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. </p>
+                        <h3 class="mt-2">TechnoStore</h3>
+                        {{-- <img src="{{asset('front/assets/images/demos/demo-4/logo-footer.png')}}" class="footer-logo" alt="Footer Logo" width="105" height="25"> --}}
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui rerum ex exercitationem laborum repellendus sapiente facilis</p>
 
                         <div class="widget-call">
                             <i class="icon-phone"></i>
@@ -17,12 +18,12 @@
 
                 <div class="col-sm-6 col-lg-3">
                     <div class="widget">
-                        <h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
+                        <h4 class="widget-title">Tautan</h4><!-- End .widget-title -->
 
                         <ul class="widget-list">
-                            <li><a href="about.html">About Molla</a></li>
+                            <li><a href="about.html">About Techno</a></li>
                             <li><a href="#">Our Services</a></li>
-                            <li><a href="#">How to shop on Molla</a></li>
+                            <li><a href="#">How to shop on Techno</a></li>
                             <li><a href="faq.html">FAQ</a></li>
                             <li><a href="contact.html">Contact us</a></li>
                         </ul><!-- End .widget-list -->
@@ -31,7 +32,7 @@
 
                 <div class="col-sm-6 col-lg-3">
                     <div class="widget">
-                        <h4 class="widget-title">Customer Service</h4><!-- End .widget-title -->
+                        <h4 class="widget-title">Layanan Kostomer</h4><!-- End .widget-title -->
 
                         <ul class="widget-list">
                             <li><a href="#">Payment Methods</a></li>
@@ -44,7 +45,7 @@
                     </div><!-- End .widget -->
                 </div><!-- End .col-sm-6 col-lg-3 -->
 
-                <div class="col-sm-6 col-lg-3">
+                {{-- <div class="col-sm-6 col-lg-3">
                     <div class="widget">
                         <h4 class="widget-title">My Account</h4><!-- End .widget-title -->
 
@@ -56,14 +57,14 @@
                             <li><a href="#">Help</a></li>
                         </ul><!-- End .widget-list -->
                     </div><!-- End .widget -->
-                </div><!-- End .col-sm-6 col-lg-3 -->
+                </div><!-- End .col-sm-6 col-lg-3 --> --}}
             </div><!-- End .row -->
         </div><!-- End .container -->
     </div><!-- End .footer-middle -->
 
     <div class="footer-bottom">
         <div class="container">
-            <p class="footer-copyright">Copyright © 2019 Molla Store. All Rights Reserved.</p><!-- End .footer-copyright -->
+            <p class="footer-copyright">Copyright © 2019 Techno Store. All Rights Reserved.</p><!-- End .footer-copyright -->
             <figure class="footer-payments">
                 <img src="{{asset('front/assets/images/payments.png')}}" alt="Payment methods" width="272" height="20">
             </figure><!-- End .footer-payments -->

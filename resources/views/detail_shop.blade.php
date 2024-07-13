@@ -44,13 +44,23 @@
                                 </div><!-- End .product-details-quantity -->
                             </div><!-- End .details-filter-row -->
 
-                            <form action="{{ route('cart.add', $produk->id) }}" method="POST">
+                            @guest
+                            <form action="{{url('login')}}">
                                 <div class="product-details-action">
-                                @csrf
-                                    <input type="hidden" name="qty" value="1" class="quantity-input"> {{--qty wak--}} {{--anomali pernah kesini--}}
-                                    <button class="btn-product btn-cart"><span>Tambah ke Keranjang</span></button>
+                                    @csrf
+                                    <input type="hidden"> {{--qty wak--}} {{--anomali pernah kesini--}}
+                                    <button class="btn-product"><span>Harap Login Terlebih dahulu</span></button>
                                 </div><!-- End .product-details-action -->
                             </form>
+                            @else
+                            <form action="{{ route('cart.add', $produk->id) }}" method="POST">
+                                <div class="product-details-action">
+                                    @csrf
+                                    <input type="hidden" name="qty" value="1" class="quantity-input"> {{--qty wak--}} {{--anomali pernah kesini--}}
+                                    <button class="btn-product btn-info"><span>Tambah ke Keranjang</span></button>
+                                </div><!-- End .product-details-action -->
+                            </form>
+                            @endguest
                             {{-- <div class="product-details-footer">
                                 <div class="product-cat">
                                     <span>Kategori:</span>

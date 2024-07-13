@@ -68,7 +68,7 @@
                         <div class="header-search-wrapper search-wrapper-wide">
                             <label for="q" class="sr-only">Search</label>
                             <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-                            <input type="search" class="form-control" name="q" id="q" placeholder="Search product ..." required>
+                            <input type="search" class="form-control" name="q" id="q" placeholder="Cari produk apa??" required>
                         </div><!-- End .header-search-wrapper -->
                     </form>
                 </div><!-- End .header-search -->
@@ -86,15 +86,27 @@
                     </a>
                 </div><!-- End .compare-dropdown --> --}}
 
-                <div class="dropdown cart-dropdown">
-                    <a href="{{url('cart')}}"  class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-display="static">
-                        <div class="icon">
-                            <i class="icon-shopping-cart"></i>
-                            {{-- <span class="cart-count">2</span> --}}
-                        </div>
-                        <p>Keranjang</p>
-                    </a>
-                </div><!-- End .cart-dropdown -->
+                @guest
+                    <div class="dropdown cart-dropdown">
+                        <a href="{{url('login')}}"  class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-display="static">
+                            <div class="icon">
+                                <i class="icon-shopping-cart"></i>
+                                {{-- <span class="cart-count">2</span> --}}
+                            </div>
+                            <p>Keranjang</p>
+                        </a>
+                    </div><!-- End .cart-dropdown -->
+                @else
+                    <div class="dropdown cart-dropdown">
+                        <a href="{{url('cart')}}"  class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" data-display="static">
+                            <div class="icon">
+                                <i class="icon-shopping-cart"></i>
+                                {{-- <span class="cart-count">2</span> --}}
+                            </div>
+                            <p>Keranjang</p>
+                        </a>
+                    </div><!-- End .cart-dropdown -->
+                @endguest
 
 
                 @guest
@@ -104,7 +116,7 @@
                     <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
                         <div class="icon">
                             <i class="icon-user"></i>
-                        </div>
+                        </div>  
                         <p>
                             {{Auth::user()->name}}
                         </p>
@@ -141,15 +153,15 @@
         <div class="container">
             <div class="header-left">
                 <div class="dropdown category-dropdown">
-                    <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Browse Categories">
-                        Browse Categories <i class="icon-angle-down"></i>
+                    <a href="{{'shop'}}" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static" title="Cari Kategori">
+                        Cari Kategori <i class="icon-angle-down"></i>
                     </a>
 
                     <div class="dropdown-menu">
                         <nav class="side-nav">
                             <ul class="menu-vertical sf-arrows">
                                 @foreach ($kategori as $data)
-                                    <li><a href="{{ url('shop/kategori/' . $data->id) }}">{{$data->kategori}}</a></li>  
+                                    <li><a href="{{ url('shop/kategori/' . $data->id) }}">{{$data->kategori}}</a></li> {{--kategori--}}
                                 @endforeach
                             </ul><!-- End .menu-vertical -->
                         </nav><!-- End .side-nav -->
@@ -161,10 +173,10 @@
                 <nav class="main-nav">
                     <ul class="menu sf-arrows">
                         <li class="megamenu-container active">
-                            <a href="{{'/'}}">Home</a>
+                            <a href="{{'/'}}">Beranda</a>
                         </li>
                         <li>
-                            <a href="{{route('shop')}}">Shop</a>
+                            <a href="{{route('shop')}}">Belanja</a>
                         </li>
                         {{-- <li>
                             <a href="product.html">Produk</a>
@@ -173,9 +185,9 @@
                 </nav><!-- End .main-nav -->
             </div><!-- End .header-center -->
 
-            <div class="header-right">
+            {{-- <div class="header-right">
                 <i class="la la-lightbulb-o"></i><p>Clearance<span class="highlight">&nbsp;Up to 30% Off</span></p>
-            </div>
+            </div> --}}
         </div><!-- End .container -->
     </div><!-- End .header-bottom -->
 </header><!-- End .header -->

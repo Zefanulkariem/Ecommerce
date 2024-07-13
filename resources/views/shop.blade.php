@@ -90,15 +90,23 @@
                                             <img src="{{asset('/image/produk/' . $data->cover) }}" width="100" alt="Gambar Produk" class="product-image">
                                         </a>
 
-                                        <div class="product-action-vertical">
+                                        {{-- <div class="product-action-vertical">
                                             <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
                                             <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
                                             <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
-                                        </div><!-- End .product-action-vertical -->
+                                        </div><!-- End .product-action-vertical --> --}}
 
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-cart"><span>Tambah ke keranjang</span></a>
-                                        </div><!-- End .product-action -->
+                                        @guest
+                                        @else
+                                        <form action="{{ route('cart.add', $data->id) }}" method="POST">
+                                            @csrf
+                                            <div class="product-action">
+                                                <input type="hidden" name="qty" value="1" class="quantity-input" style="">
+                                                <button class="btn-product btn-cart"><span>Tambah ke keranjang</span></button>
+                                                {{-- <a href="popup/quickView.html" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a> --}}
+                                            </div><!-- End .product-action -->
+                                        </form>
+                                        @endguest
                                     </figure><!-- End .product-media -->
 
                                     <div class="product-body">
@@ -109,25 +117,7 @@
                                         <div class="product-price">
                                             <span class="new-price">@rupiah($data->harga)</span>
                                         </div><!-- End .product-price -->
-                                        {{-- <div class="ratings-container">
-                                            <div class="ratings">
-                                                <div class="ratings-val" style="width: 20%;"></div><!-- End .ratings-val -->
-                                            </div><!-- End .ratings -->
-                                            <span class="ratings-text">( 2 Reviews )</span>
-                                        </div><!-- End .rating-container --> --}}
-
-                                        {{-- <div class="product-nav product-nav-thumbs">
-                                            <a href="#" class="active">
-                                                <img src="{{asset('front/assets/images/products/product-4-thumb.jpg')}}" alt="product desc">
-                                            </a>
-                                            <a href="#">
-                                                <img src="{{asset('front/assets/images/products/product-4-2-thumb.jpg')}}" alt="product desc">
-                                            </a>
-
-                                            <a href="#">
-                                                <img src="{{asset('front/assets/images/products/product-4-3-thumb.jpg')}}" alt="product desc">
-                                            </a>
-                                        </div><!-- End .product-nav --> --}}
+                                        
                                     </div><!-- End .product-body -->
                                 </div><!-- End .product -->
                             </div><!-- End .col-sm-6 col-lg-4 -->
@@ -135,7 +125,7 @@
                         </div><!-- End .row -->
                     </div><!-- End .products -->
 
-                    <nav aria-label="Page navigation">
+                    {{-- <nav aria-label="Page navigation">
                         <ul class="pagination justify-content-center">
                             <li class="page-item disabled">
                                 <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1" aria-disabled="true">
@@ -152,7 +142,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </nav>
+                    </nav> --}}
                 </div><!-- End .col-lg-9 -->
                 <aside class="col-lg-3 order-lg-first">
                     <div class="sidebar sidebar-shop">

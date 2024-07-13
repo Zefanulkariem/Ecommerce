@@ -13,22 +13,22 @@ class CartController extends Controller
     public function add(Request $request, $id)
     {
         $request->validate([
-            'qty' => 'required|integer|min:1',
+            'qty' => 'required|integer|min:1', 
         ]);
 
-        $product = Produk::find($id);
+        $produk = Produk::find($id);
 
-        if (!$product) {
+        if (!$produk) {
             return redirect()->back()->with('error', 'Product not found!');
         }
 
         $quantity = $request->input('qty', 1);
 
-        $cart = Cart::where('id_user', Auth::id())->where('id_produk', $id)->first();
+        $keranjang = Cart::where('id_user', Auth::id())->where('id_produk', $id)->first();
 
-        if ($cart) {
-            $cart->qty += $quantity;
-            $cart->save();
+        if ($keranjang) {
+            $keranjang->qty += $quantity;
+            $keranjang->save();
         } else {
             Cart::create([
                 'id_user' => Auth::id(),
@@ -43,17 +43,17 @@ class CartController extends Controller
     public function index()
     {
         $kategori = Kategori::all();
-        $cartItems = Cart::where('id_user', Auth::id())->with('produk')->get();
-        return view('cart', compact('cartItems', 'kategori'));
+        $keranjangItem = Cart::where('id_user', Auth::id())->with('produk')->get();
+        return view('cart', compact('keranjangItem', 'kategori'));
     }
 
     public function update(Request $request, $id)
     {
-        $cart = Cart::where('id_user', Auth::id())->where('id', $id)->first();
+        $keranjang = Cart::where('id_user', Auth::id())->where('id', $id)->first();
 
-        if ($cart) {
-            $cart->qty = $request->qty;
-            $cart->save();
+        if ($keranjang) {
+            $keranjang->qty = $request->qty;
+            $keranjang->save();
             return redirect()->back()->with('success', 'Cart updated successfully!');
         }
 
@@ -62,10 +62,10 @@ class CartController extends Controller
 
     public function delete($id)
     {
-        $cart = Cart::where('id_user', Auth::id())->where('id', $id)->first();
+        $keranjang = Cart::where('id_user', Auth::id())->where('id', $id)->first();
 
-        if ($cart) {
-            $cart->delete();
+        if ($keranjang) {
+            $keranjang->delete();
             return redirect()->back()->with('success', 'Cart item removed successfully!');
         }
 
