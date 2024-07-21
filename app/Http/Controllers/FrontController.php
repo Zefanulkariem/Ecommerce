@@ -12,20 +12,27 @@ class FrontController extends Controller
     {
         $kategori = Kategori::all();
         $produk = Produk::all();
-        return view('index',compact('kategori', 'produk'));
-    }
-    
-    //kategoriByID
-    public function kategori($id)
-    {
-        return $this->produkByKategori($id);
+        return view('front.index',compact('kategori', 'produk'));
     }
 
-    public function produkByKategori($id)
+    public function Kategori($id) //kategori yang ada di web
     {
         $kategori = Kategori::all();
-        $produk = Produk::where('id_kategori', $id)->get();
-        return view('shop', compact('produk', 'kategori'));
+
+            $produk = Produk::where('id_kategori', $id)->get();
+        
+        return view('front.shop', compact('produk', 'kategori'));
+    }
+
+    public function Search(Request $request)
+    {
+        $kategori = Kategori::all();
+
+        $search = $request->input('search'); //mencari input seacrh dari view
+
+        $produk = Produk::where('nama_produk', 'LIKE', '%' . $search . '%')->get();
+        
+        return view('front.shop', compact('produk', 'kategori', 'search'));
     }
     
     public function produk()
@@ -37,20 +44,14 @@ class FrontController extends Controller
     public function error()
     {
         $kategori = Kategori::all();
-        return view('error', compact('kategori'));
-    }
-    
-    public function order()
-    {
-        $kategori = Kategori::all();
-        return view('order', compact('kategori'));
+        return view('front.error', compact('kategori'));
     }
 
     public function shop()
     {
         $kategori = Kategori::all();
         $produk = Produk::all();
-        return view('shop', compact('produk', 'kategori'));
+        return view('front.shop', compact('produk', 'kategori'));
     }
     
     //detail-shop
@@ -58,11 +59,15 @@ class FrontController extends Controller
     {
         $kategori = Kategori::all();
         $produk = Produk::findOrFail($id);
-        // $kategori = Kategori::find($produk->kategori_id);
 
-        //dd($produk, $kategori);
+        return view('front.detail_shop', compact('produk', 'kategori' )); //kategori
+    }
 
-        return view('detail_shop', compact('produk', 'kategori' )); //kategori
+    public function transaksi()
+    {
+        $kategori = Kategori::all();
+        $produk = Produk::all();
+        return view('transaksi', compact('kategori', 'produk'));
     }
 
 }

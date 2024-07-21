@@ -22,13 +22,13 @@
                                 <td class="product-col">
                                     <div class="product">
                                         <figure class="product-media">
-                                            <a href="#">
+                                            <a href="{{route('detail_shop', ['id' => $data->produk])}}">
                                                 <img src="{{ asset('image/produk/' . $data->produk->cover) }}" alt="Product image">
                                             </a>
                                         </figure>
 
                                         <h3 class="product-title">
-                                            <a href="#">{{ $data->produk ? $data->produk->nama_produk : 'Produk Tidak Tersedia' }}</a>
+                                            <a href="{{route('detail_shop', ['id' => $data->produk])}}">{{ $data->produk ? $data->produk->nama_produk : 'Produk Tidak Tersedia' }}</a>
                                         </h3><!-- End .product-title -->
                                     </div><!-- End .product -->
                                 </td>
@@ -73,7 +73,7 @@
                             </tbody>
                         </table><!-- End .table table-summary -->
 
-                        <a href="checkout.html" class="btn btn-outline-primary-2 btn-order btn-block">CHECKOUT</a>
+                        <a href="{{ route('order') }}" class="btn btn-outline-primary-2 btn-order btn-block">CHECKOUT</a>
                     </div><!-- End .summary -->
 
                     <a href="{{route('shop')}}" class="btn btn-outline-dark-2 btn-block mb-3"><span>LANJUT BELANJA</span><i class="icon-refresh"></i></a>

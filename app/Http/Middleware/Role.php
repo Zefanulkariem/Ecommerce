@@ -2,10 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Auth;
 
 class Role
 {
@@ -16,7 +16,7 @@ class Role
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->role != 1) { //tambahkan ini supaya bisa membedakan admin & user
+        if ($request->user()->role != User::ROLE_ADMIN) { //tambahkan ini supaya bisa membedakan admin & user //edit
             return redirect('/');
         }
 

@@ -65,8 +65,31 @@
 
     </div><!-- End .intro-slider owl-carousel owl-simple -->
 
-    <span class="slider-loader"></span><!-- End .slider-loader -->
+    {{-- <span class="slider-loader"></span><!-- End .slider-loader --> --}}
 </div><!-- End .intro-slider-container -->
+
+{{-- <div class="container">
+    <h2 class="title text-center mb-4">Kategori Populer Lainnya</h2><!-- End .title text-center -->
+    
+    <div class="cat-blocks-container">
+        <div class="row justify-content-center">
+            @foreach ($kategori as $data)
+            <div class="col-6 col-sm-4 col-lg-2">
+                <a href="category.html" class="cat-block">
+                    <figure>
+                        <span>
+                            <img src="{{asset('front/assets/images/demos/demo-4/cats/1.png')}}" alt="Category image">
+                            <img src="{{asset('/image/kategori/' . $data->cover) }}" alt="Category image">
+                        </span>
+                    </figure>
+                    <h3 class="cat-block-title">{{ $data->kategori }}</h3><!-- End .cat-block-title -->
+                </a>
+            </div><!-- End .col-sm-4 col-lg-2 -->
+            @endforeach
+            
+        </div><!-- End .row -->
+    </div><!-- End .cat-blocks-container -->
+</div><!-- End .container --> --}}
 
 <div class="mb-5"></div><!-- End .mb-5 -->
 
@@ -85,43 +108,45 @@
     <div class="products">
         <div class="row justify-content-center">
             @foreach ($produk as $data)
-                <div class="col-6 col-md-4 col-lg-3">
-                    <div class="product product-2">
-                        <figure class="product-media">
-                            {{-- <span class="product-label label-circle label-sale">Sale</span> --}}
-                            <a href="{{ route('detail_shop', ['id' => $data->id]) }}">
-                                <img src="{{asset('/image/produk/' . $data->cover) }}" width="100" alt="Gambar Produk" class="product-image">
-                            </a>
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="product product-7 justify-start">
+                    <figure class="product-media">
+                        {{-- <span class="product-label label-new">Baru</span> --}}
+                        <a href="{{route('detail_shop', ['id' => $data->id])}}"> {{--input shop detail   --}}
+                            <img src="{{asset('/image/produk/' . $data->cover) }}" width="100" alt="Gambar Produk" class="product-image">
+                        </a>
 
-                            {{-- <div class="product-action-vertical">
-                                <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"></a>
-                            </div><!-- End .product-action --> --}}
+                        {{-- <div class="product-action-vertical">
+                            <a href="#" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
+                            <a href="popup/quickView.html" class="btn-product-icon btn-quickview" title="Quick view"><span>Quick view</span></a>
+                            <a href="#" class="btn-product-icon btn-compare" title="Compare"><span>Compare</span></a>
+                        </div><!-- End .product-action-vertical --> --}}
 
-                            @guest
-                            @else
-                            <form action="{{ route('cart.add', $data->id) }}" method="POST">
-                                @csrf
-                                <div class="product-action">
-                                    <input type="hidden" name="qty" value="1" class="quantity-input">
-                                    <button class="btn-product btn-cart"><span>Tambah ke keranjang</span></button>
-                                    {{-- <a href="popup/quickView.html" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a> --}}
-                                </div><!-- End .product-action -->
-                            </form>
-                            @endguest
-                        </figure><!-- End .product-media -->
+                        @guest
+                        @else
+                        <form action="{{ route('cart.add', $data->id) }}" method="POST">
+                            @csrf
+                            <div class="product-action">
+                                <input type="hidden" name="qty" value="1" class="quantity-input" style="">
+                                <button class="btn-product btn-cart"><span>Tambah ke keranjang</span></button>
+                                {{-- <a href="popup/quickView.html" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a> --}}
+                            </div><!-- End .product-action -->
+                        </form>
+                        @endguest
+                    </figure><!-- End .product-media -->
 
-                        <div class="product-body">
-                            <div class="product-cat">
-                                <a href="{{'error'}}">{{$data->kategori->kategori}}</a>
-                            </div><!-- End .product-cat -->
-                            <h3 class="product-title"><a href="{{ route('detail_shop', ['id' => $data->id]) }}">{{$data->nama_produk}}</a></h3><!-- End .product-title -->
-                            <div class="product-price">
-                                <span class="new-price">@rupiah($data->harga)</span>
-                            </div><!-- End .product-price -->
-
-                        </div><!-- End .product-body -->
-                    </div><!-- End .product -->
-                </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+                    <div class="product-body">
+                        <div class="product-cat">
+                            <a href="{{'error'}}">{{$data->kategori->kategori}}</a>
+                        </div><!-- End .product-cat -->
+                        <h3 class="product-title" align="start"><a href="{{route('detail_shop', ['id' => $data->id])}}">{{$data->nama_produk}}</a></h3><!-- End .product-title -->
+                        <div class="product-price">
+                            <span class="new-price">@rupiah($data->harga)</span>
+                        </div><!-- End .product-price -->
+                        
+                    </div><!-- End .product-body -->
+                </div><!-- End .product -->
+            </div><!-- End .col-sm-6 col-lg-4 -->
             @endforeach
 
         </div><!-- End .row -->

@@ -34,7 +34,7 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'kategori' => 'required',
+            'kategori' => 'required|unique:kategoris', //edit
             'cover' => 'required',
 
         ]);
@@ -78,7 +78,7 @@ class KategoriController extends Controller
     public function update(Request $request, $id)
     {
         $validate = $request->validate([
-            'kategori' => 'required',
+            'kategori' => 'required|unique:kategoris,kategori,' . $id, //edit
             'cover' => 'required',
 
         ]);

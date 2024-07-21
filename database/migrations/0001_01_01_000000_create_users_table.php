@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->integer('no_telp')->nullable();
             $table->text('alamat')->nullable();
-            $table->boolean('role')->default(0);
+            $table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();
         });

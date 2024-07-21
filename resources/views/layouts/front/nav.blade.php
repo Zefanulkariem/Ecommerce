@@ -64,13 +64,16 @@
             <div class="header-center">
                 <div class="header-search header-search-extended header-search-visible d-none d-lg-block">
                     <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
-                    <form action="{{'error'}}" method="get">
+
+                    {{-- search --}}
+                    <form action="{{ route('search') }}" method="get">  {{--edit--}}
                         <div class="header-search-wrapper search-wrapper-wide">
-                            <label for="q" class="sr-only">Search</label>
+                            <label class="sr-only">Search</label>
                             <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-                            <input type="search" class="form-control" name="q" id="q" placeholder="Cari produk apa??" required>
+                            <input type="search" class="form-control" name="search" id="search" placeholder="Cari produk apa??" required autocomplete="off">
                         </div><!-- End .header-search-wrapper -->
                     </form>
+
                 </div><!-- End .header-search -->
             </div>
 
@@ -130,6 +133,8 @@
                                     <h4 class="product-title">
                                         <a href="product.html">Setting</a>
                                     </h4>
+
+                                    {{-- logout --}}
                                     <h4 class="product-title">
                                         <a href="{{route('logout')}}"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
@@ -137,6 +142,7 @@
                                             @csrf
                                         </form>
                                     </h4>
+
                                 </div><!-- End .product-cart-details -->
                             </div><!-- End .product -->
                         </div><!-- End .cart-product -->

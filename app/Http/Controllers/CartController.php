@@ -31,7 +31,7 @@ class CartController extends Controller
             $keranjang->save();
         } else {
             Cart::create([
-                'id_user' => Auth::id(),
+                'id_user' => Auth::id(), //mencari tiap masing2 pengguna coy
                 'id_produk' => $id,
                 'qty' => $quantity,
             ]);
@@ -43,8 +43,8 @@ class CartController extends Controller
     public function index()
     {
         $kategori = Kategori::all();
-        $keranjangItem = Cart::where('id_user', Auth::id())->with('produk')->get();
-        return view('cart', compact('keranjangItem', 'kategori'));
+        $keranjangItem = Cart::where('id_user', Auth::id())->with('produk')->get(); //item keranjang
+        return view('front.cart', compact('keranjangItem', 'kategori'));
     }
 
     public function update(Request $request, $id)

@@ -2,6 +2,16 @@
 
 @section('content')
 <main class="main">
+    <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{('/')}}">Beranda</a></li>
+                <li class="breadcrumb-item" aria-current="page"><a href="{{route('shop')}}">Belanja</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{$produk->nama_produk}}</li>
+            </ol>
+        </div><!-- End .container -->
+    </nav><!-- End .breadcrumb-nav -->
+
     <div class="page-content mt-3">
         <div class="container">
             <div class="product-details-top mb-2">
@@ -37,12 +47,12 @@
                                 <p>{{$produk->deskripsi}}</p>
                             </div><!-- End .product-content -->
 
-                            <div class="details-filter-row details-row-size">
+                            {{-- <div class="details-filter-row details-row-size">
                                 <label for="qty">Quantity:</label>
                                 <div class="product-details-quantity">
                                     <input type="number" id="qty" class="form-control" value="1" min="1" max="10" step="1" produk-decimals="0" required>
                                 </div><!-- End .product-details-quantity -->
-                            </div><!-- End .details-filter-row -->
+                            </div><!-- End .details-filter-row --> --}}
 
                             @guest
                             <form action="{{url('login')}}">
@@ -57,7 +67,7 @@
                                 <div class="product-details-action">
                                     @csrf
                                     <input type="hidden" name="qty" value="1" class="quantity-input"> {{--qty wak--}} {{--anomali pernah kesini--}}
-                                    <button class="btn-product btn-info"><span>Tambah ke Keranjang</span></button>
+                                    <button class="btn-product"><span>Tambah ke Keranjang</span></button>
                                 </div><!-- End .product-details-action -->
                             </form>
                             @endguest

@@ -15,8 +15,12 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_produk');
-            $table->enum('status', ['pendding', 'done']);
-            $table->integer('jmlh_order');
+            $table->string('nama_lengkap');
+            $table->string('alamat');
+            $table->string('kota');
+            $table->string('negara');
+            $table->integer('no_telp');
+            $table->integer('quantity');
             $table->integer('total');
             $table->timestamps();
 

@@ -34,7 +34,7 @@ class HomeController extends Controller
         if ($user->role == 1) {
             return view('admin.index');
         } else {
-            return view('index', compact('kategori', 'produk'));
+            return view('front.index', compact('kategori', 'produk'));
         };
 
     }

@@ -5,8 +5,8 @@
     <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
         <div class="container">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{('/')}}">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                <li class="breadcrumb-item"><a href="{{('/')}}">Beranda</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Belanja</li>
             </ol>
         </div><!-- End .container -->
     </nav><!-- End .breadcrumb-nav -->
@@ -101,7 +101,7 @@
                                         <form action="{{ route('cart.add', $data->id) }}" method="POST">
                                             @csrf
                                             <div class="product-action">
-                                                <input type="hidden" name="qty" value="1" class="quantity-input" style="">
+                                                <input type="hidden" name="qty" value="1" class="quantity-input">
                                                 <button class="btn-product btn-cart"><span>Tambah ke keranjang</span></button>
                                                 {{-- <a href="popup/quickView.html" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a> --}}
                                             </div><!-- End .product-action -->
