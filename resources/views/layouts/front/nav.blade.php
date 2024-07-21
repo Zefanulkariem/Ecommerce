@@ -7,7 +7,7 @@
 
             <div class="header-right">
 
-                <ul class="top-menu">
+                {{-- <ul class="top-menu">
                     <li>
                         <a href="#">Links</a>
                         <ul>
@@ -22,7 +22,7 @@
                                     </div><!-- End .header-menu -->
                                 </div>
                             </li>
-                            {{-- <li>
+                            <li>
                                 <div class="header-dropdown">
                                     <a href="#">English</a>
                                     <div class="header-menu">
@@ -33,14 +33,44 @@
                                         </ul>
                                     </div><!-- End .header-menu -->
                                 </div>
-                            </li> --}}
-                            @guest
-                            <li><a href="{{url('login')}}">Sign in</a>/<a href="{{route('register')}}">Sign Up</a></li>
-                            @else
-                            {{-- kosong wak --}}
-                            @endguest
+                            </li>
                         </ul>
                     </li>
+                </ul><!-- End .top-menu --> --}}
+                <ul class="top-menu">
+                    {{-- <li>
+                        <a href="#">Links</a>
+                        <ul>
+                            <li>
+                                <div class="header-dropdown">
+                                    <a href="#">USD</a>
+                                    <div class="header-menu">
+                                        <ul>
+                                            <li><a href="#">Eu</a></li>
+                                            <li><a href="#">Usd</a></li>
+                                        </ul>
+                                    </div><!-- End .header-menu -->
+                                </div>
+                            </li>
+                            <li>
+                                <div class="header-dropdown">
+                                    <a href="#">English</a>
+                                    <div class="header-menu">
+                                        <ul>
+                                            <li><a href="#">English</a></li>
+                                            <li><a href="#">French</a></li>
+                                            <li><a href="#">Spanish</a></li>
+                                        </ul>
+                                    </div><!-- End .header-menu -->
+                                </div>
+                            </li>
+                        </ul>
+                    </li> --}}
+                    @guest
+                        <li><a href="{{url('login')}}">Sign in</a>/<a href="{{route('register')}}">Sign Up</a></li>
+                    @else
+                        {{-- kosong wak --}}
+                    @endguest
                 </ul><!-- End .top-menu -->
             </div><!-- End .header-right -->
 
